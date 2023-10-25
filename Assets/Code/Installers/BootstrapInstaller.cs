@@ -1,9 +1,9 @@
-﻿using Code.Services.GameDataService;
+﻿using Code.Factories.StateFactory;
+using Code.Services.GameDataService;
 using Code.Services.LoadSceneService;
 using Code.Services.ResourceBankService;
 using Code.Services.SaveLoadDataService;
 using Code.StateMachine;
-using Code.UI;
 using UnityEngine;
 using Zenject;
 
@@ -12,29 +12,28 @@ namespace Code.Installers
     public class BootstrapInstaller : MonoInstaller
     {
         [SerializeField] private CoroutineRunner _coroutineRunnerPrefab;
-        [SerializeField] private SideSelectorView _sideSelectorView;
 
         public override void InstallBindings()
         {
-            BindSideSelectorViewFactory();
             BindCoroutineRunner();
             BindLoadSceneService();
             BindSaveLoadDataService();
             BindDataService();
             BindResourceBankService();
+            BindStatesFactory();
             BindStateMachine();
         }
-
-        private void BindSideSelectorViewFactory()
-        {
+        
+        private void BindStatesFactory() =>
             Container
-                .BindFactory<SideSelectorView, SideSelectorView.Factory>()
-                .FromComponentInNewPrefab(_sideSelectorView);
-        }
+                .Bind<IStatesFactory>()
+                .To<StatesFactory>()
+                .AsSingle();
 
         private void BindStateMachine() =>
             Container
-                .Bind<GameStateMachine>()
+                .Bind<IStateMachine>()
+                .To<GameStateMachine>()
                 .AsSingle();
 
         private void BindResourceBankService() =>

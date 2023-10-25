@@ -1,28 +1,20 @@
-﻿using Code.Services.GameDataService;
-using Code.Services.ResourceBankService;
-using Code.Services.SaveLoadDataService.Data;
-using Code.UI;
-using UnityEngine;
-using Zenject;
+﻿using Code.UI;
 
 namespace Code.StateMachine.States
 {
     public sealed class SideSelectionState : IEmptyState
     {
-        private readonly GameStateMachine _gameStateMachine;
-        private readonly SideSelectorView.Factory _sideSelectorViewFactory;
-        private SideSelectorView _sideSelectorView;
+        private readonly IStateMachine _stateMachine;
+        private readonly SideSelectorView _sideSelectorView;
 
-        public SideSelectionState(GameStateMachine gameStateMachine, SideSelectorView.Factory sideSelectorViewFactory)
+        public SideSelectionState(IStateMachine stateMachine, SideSelectorView sideSelectorView)
         {
-            _gameStateMachine = gameStateMachine;
-            _sideSelectorViewFactory = sideSelectorViewFactory;
+            _stateMachine = stateMachine;
+            _sideSelectorView = sideSelectorView;
         }
 
         public void Enter()
         {
-            _sideSelectorView = _sideSelectorViewFactory.Create();
-            
             _sideSelectorView.HideButton.onClick.AddListener(OnHideButtonClicked);
             _sideSelectorView.SeekButton.onClick.AddListener(OnSeekButtonClicked);
             
@@ -31,12 +23,12 @@ namespace Code.StateMachine.States
 
         public void OnHideButtonClicked()
         {
-            _gameStateMachine.Enter<GameLoopBySeekerState>();
+            _stateMachine.Enter<GameLoopByHiderState>();
         }
 
         public void OnSeekButtonClicked()
         {
-            _gameStateMachine.Enter<GameLoopByHiderState>();
+            _stateMachine.Enter<GameLoopBySeekerState>();
         }
 
         public void Exit()

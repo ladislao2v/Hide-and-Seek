@@ -75,4 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coroutineRunnerPrefab: {fileID: 7521342323329903458, guid: 8b9ca1836d02421488c8f8b980c91803, type: 3}
-  _sideSelectorView: {fileID: 6115654360554172571, guid: d2f03a4b9aa12a9479e8262c9818bdfd, type: 3}
+  _sideSelectorViewPrefab: {fileID: 6115654360554172571, guid: d2f03a4b9aa12a9479e8262c9818bdfd, type: 3}
+  _playerPrefab: {fileID: 3918127768170402196, guid: 1381a969b8e172e49b9059ef6c958577, type: 3}

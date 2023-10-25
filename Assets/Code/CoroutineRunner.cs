@@ -2,8 +2,5 @@
 
 namespace Code
 {
-    public class CoroutineRunner : MonoBehaviour, ICoroutineRunner
-    {
-        
-    }
+    public class CoroutineRunner : MonoBehaviour, ICoroutineRunner { }
 }

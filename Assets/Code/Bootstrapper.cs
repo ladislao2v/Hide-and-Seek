@@ -10,12 +10,12 @@ namespace Code
 {
     public class Bootstrapper : MonoBehaviour
     {
-        private GameStateMachine _stateMachine;
+        private IStateMachine _stateMachine;
         private IGameDataService _gameDataService;
         private IResourceBankService _bankService;
 
         [Inject]
-        private void Construct(GameStateMachine stateMachine, IGameDataService dataService, IResourceBankService bankService)
+        private void Construct(IStateMachine stateMachine, IGameDataService dataService, IResourceBankService bankService)
         {
             _stateMachine = stateMachine;
             _gameDataService = dataService;

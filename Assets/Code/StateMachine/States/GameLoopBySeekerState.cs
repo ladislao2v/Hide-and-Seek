@@ -4,23 +4,17 @@ namespace Code.StateMachine.States
 {
     public sealed class GameLoopBySeekerState : IEmptyState
     {
-        private readonly GameStateMachine _gameStateMachine;
-        private readonly IInputService _inputService;
+        private readonly IStateMachine _stateMachine;
 
-        public GameLoopBySeekerState(GameStateMachine gameStateMachine, IInputService inputService)
+        public GameLoopBySeekerState(GameStateMachine gameStateMachine)
         {
-            _gameStateMachine = gameStateMachine;
-            _inputService = inputService;
+            _stateMachine = gameStateMachine;
         }
 
         public void Enter()
         {
-            _inputService.Enable();
         }
 
-        public void Exit()
-        {
-            _inputService.Disable();
-        }
+        public void Exit() { }
     }
 }

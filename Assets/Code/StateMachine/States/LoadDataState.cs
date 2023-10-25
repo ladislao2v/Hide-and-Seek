@@ -5,10 +5,10 @@ namespace Code.StateMachine.States
 {
     public sealed class LoadDataState : IEmptyState
     {
-        private readonly GameStateMachine _stateMachine;
+        private readonly IStateMachine _stateMachine;
         private readonly IGameDataService _gameDataService;
 
-        public LoadDataState(GameStateMachine stateMachine, IGameDataService gameDataService)
+        public LoadDataState(IStateMachine stateMachine, IGameDataService gameDataService)
         {
             _stateMachine = stateMachine;
             _gameDataService = gameDataService;

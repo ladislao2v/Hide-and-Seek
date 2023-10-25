@@ -21,10 +21,5 @@ namespace Code.UI
         {
             gameObject.SetActive(false);
         }
-        
-        public class Factory : PlaceholderFactory<SideSelectorView>
-        {
-            
-        }
     }
 }

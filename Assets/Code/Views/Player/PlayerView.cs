@@ -35,5 +35,10 @@ namespace Code.Views.Player
         {
             _agent.Move(direction * _speed * Time.fixedDeltaTime);
         }
+
+        public class Factory : PlaceholderFactory<PlayerView>
+        {
+      
+        }
     }
 }
