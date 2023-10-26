@@ -1,4 +1,5 @@
 ﻿using Code.Services.InputService;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -33,6 +34,7 @@ namespace Code.Views.Player
 
         private void Move(Vector3 direction)
         {
+            transform.LookAt(transform.position + direction);
             _agent.Move(direction * _speed * Time.fixedDeltaTime);
         }
 

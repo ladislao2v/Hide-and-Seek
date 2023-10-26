@@ -1,20 +1,17 @@
-﻿using Code.Services.InputService;
+﻿using Code.Services.CameraFollowService;
+using Code.Services.InputService;
+using Code.Views.Player;
 
 namespace Code.StateMachine.States
 {
-    public sealed class GameLoopBySeekerState : IEmptyState
+    public sealed class GameLoopBySeekerState : GameLoopState
     {
-        private readonly IStateMachine _stateMachine;
-
-        public GameLoopBySeekerState(GameStateMachine gameStateMachine)
-        {
-            _stateMachine = gameStateMachine;
-        }
-
-        public void Enter()
+        public GameLoopBySeekerState(
+            IStateMachine stateMachine, 
+            PlayerView.Factory playerFactory,
+            IInputService inputService, 
+            ICameraFollowService camera) : base(stateMachine, playerFactory, inputService, camera)
         {
         }
-
-        public void Exit() { }
     }
 }

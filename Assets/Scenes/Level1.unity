@@ -264,6 +264,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286855624921267465, guid: 06c58307245a64e4da1b864bc9f0e348, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286855624921267465, guid: 06c58307245a64e4da1b864bc9f0e348, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4490865738334502930, guid: 06c58307245a64e4da1b864bc9f0e348, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -565,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 3918127768170402196, guid: 1381a969b8e172e49b9059ef6c958577, type: 3}
+  _camera: {fileID: 963194229}
   _joystick: {fileID: 1047319686}
   _sideSelectorView: {fileID: 1287960537}
 --- !u!1 &963194225
@@ -578,6 +587,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -651,6 +661,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5b3d0001f04682a63996e38fa67e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _returnSpeed: 1
+  _height: 14
+  _rearDistance: 12.5
 --- !u!1001 &1047319684
 PrefabInstance:
   m_ObjectHideFlags: 0

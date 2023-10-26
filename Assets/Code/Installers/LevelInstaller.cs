@@ -1,4 +1,5 @@
 ﻿using Code.Factories.StateFactory;
+using Code.Services.CameraFollowService;
 using Code.Services.InputService;
 using Code.StateMachine;
 using Code.UI;
@@ -12,6 +13,9 @@ namespace Code.Installers
     {
         [Header("Units")]
         [SerializeField] private PlayerView _playerPrefab;
+
+        [Header("Camera")] 
+        [SerializeField] private CameraFollower _camera;
         
         [Header("Input")]
         [SerializeField] private Joystick _joystick;
@@ -21,11 +25,20 @@ namespace Code.Installers
 
         public override void InstallBindings()
         {
+            BindCameraFollowService();
             BindInputService();
             BindSideSelectorView();
             BindPlayerFactory();
             BindStateMachine();
         }
+
+        private void BindCameraFollowService() =>
+            Container
+                .Bind<ICameraFollowService>()
+                .To<CameraFollower>()
+                .FromInstance(_camera)
+                .AsSingle()
+                .NonLazy();
 
         private void BindPlayerFactory() => 
             Container
